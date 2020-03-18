@@ -9,7 +9,10 @@ export default class Stopwatch extends Component {
 
     componentDidMount(){
         this.intervalID = setInterval(() => this.tick(),100)
+    }
 
+    componentWillUnmount(){
+        clearInterval(this.intervalID);
     }
 
     tick = () => {
@@ -36,7 +39,7 @@ export default class Stopwatch extends Component {
     render(){
         const seconds = Math.floor(this.state.elapsedTime / 1000);
         return(
-            <div classNam="stopwatch">
+            <div className="stopwatch">
                 <h2>Stopwatch</h2>
                 <span className="stopwatch-time">{seconds}</span>
                 <button onClick={this.handleStopwatch}>{this.state.isRunning ? 'Stop' : 'Start'}</button>
