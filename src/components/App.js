@@ -30,8 +30,7 @@ class App extends Component {
     ]
   };
 
-    //getting highscore of players and setting icon color change 
-  prevPlayerId = 4;
+    //getting highscore of players and setting icon color change
     getHighScore = () => {
         const scores = this.state.players.map(p => p.score);
         const highScore = Math.max(...scores);
@@ -42,6 +41,7 @@ class App extends Component {
     }
 
   //player id counter
+    prevPlayerId = 4;
     handleScoreChange = (index,delta) => {
         this.setState(prevState => ({
             score: prevState.players[index].score += delta
